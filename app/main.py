@@ -36,3 +36,8 @@ def update_task(task_id: int, task_data: schemas.TaskUpdate, db: Session = Depen
 @app.delete("/tasks/{task_id}")
 def delete_task(task_id: int, db: Session = Depends(get_db)):
     return crud.delete_task(db, task_id)
+
+
+@app.get("/")
+def root():
+    return {"message": "API de tareas - ver documentación en /docs"}
